@@ -86,6 +86,8 @@ public class DataSource {
     }
   }
 
+  
+  /*
   public static void main(String[] args){
     //connect();
 
@@ -95,4 +97,5 @@ public class DataSource {
     Account myAccount = getAccount(myCustomer.getAccountId());
     System.out.println("RETRIEVED ACCOUNT BALANCE = " + myAccount.getBalance() );
   }
+  */
 }
