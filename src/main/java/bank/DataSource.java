@@ -70,6 +70,22 @@ public class DataSource {
     return account;
   }
 
+  public static void updateAccountBalance(int accountId, double balance){
+    String sql = "update Accounts set balance = ? where id = ?";
+    
+    try (Connection connection = connect();
+        PreparedStatement stmt = connection.prepareStatement(sql)) {
+
+      stmt.setDouble(1, balance);
+      stmt.setInt(2, accountId);
+      
+      stmt.executeUpdate();
+
+    } catch (SQLException exc) {
+      exc.printStackTrace();
+    }
+  }
+
   public static void main(String[] args){
     //connect();
 

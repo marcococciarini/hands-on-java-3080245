@@ -1,4 +1,5 @@
 package bank;
+import bank.exceptions.*;
 
 public class Account {
 
@@ -38,8 +39,14 @@ public class Account {
     this.balance = balance;
   }
 
-  public void deposit(double amount){
-    this.balance += amount;
+  public void deposit(double amount) throws AmountException{
+    if (amount <= 0){
+      throw new AmountException("The deposit cannot be less than or equal to zero.");
+    }
+    else {
+      double newBalance = balance + amount;
+      setBalance(newBalance);
+    }
   }
 
   public void withdraw(double amount) {
