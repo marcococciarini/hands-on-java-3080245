@@ -8,7 +8,7 @@ public class Menu {
 
   private Scanner scanner;
 
-  public static void Main(String[] args){
+  public static void main(String[] args){
     System.out.println("Welcome to Globe Bank Int.");
 
     Menu menu = new Menu();
