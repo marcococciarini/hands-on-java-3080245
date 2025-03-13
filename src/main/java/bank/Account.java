@@ -50,7 +50,22 @@ public class Account {
     }
   }
 
-  public void withdraw(double amount) {
-    this.balance -= amount;
+  public void withdraw(double amount) throws AmountException {
+    if (amount < 0) {
+      throw new AmountException("The withdraw amount cannot be less than or equal to zero.");
+    } else {
+      //
+
+      if (amount <= getBalance()){
+        double newBalance = balance - amount;
+        setBalance(newBalance);
+        DataSource.updateAccountBalance(this.id, newBalance);
+      }
+      else {
+        throw new AmountException("You do not have sufficient funds to withdraw the requested amount.");
+
+      }
+      
+    }
   }
 }
